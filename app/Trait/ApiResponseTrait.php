@@ -5,20 +5,20 @@ namespace App\Trait;
 trait ApiResponseTrait
 {
     // success response method
-    public function successResponse($status = true, array $data = [], $message = null, $code = 200)
+    public function successResponse( array $data = [], $message = null, $code = 200)
     {
         return response()->json([
-            'status' => $status,
+            'status' => true,
             'message' => $message,
             'data' => $data
         ],$code);
     }
 
     // error response method
-    public function errorResponse($status = false, $message = null,$code)
+    public function errorResponse($message = null,$code)
     {
         return response()->json([
-            'status' => $status,
+            'status' => false,
             'message' => $message,
         ],$code);
     }
